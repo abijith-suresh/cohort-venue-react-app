@@ -3,8 +3,7 @@ import venues from "../../data/venuesData";
 import { useState } from "react";
 import VenueRow from "./VenueRow";
 
-export default function VenueList() {
-  const [allVenues, setAllVenues] = useState(venues);
+export default function VenueList({allVenues, setAllVenues}) {
 
   const handleEdit = (venueId) => {
     const venueToEdit = allVenues.find((venue) => venue.venueId === venueId);
