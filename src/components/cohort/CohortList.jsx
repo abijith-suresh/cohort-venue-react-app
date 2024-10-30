@@ -1,11 +1,7 @@
 import CohortRow from "./CohortRow";
-import { useState } from "react";
-import cohorts from "../../data/cohortData";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function CohortList() {
-  const [allCohorts, setAllCohorts] = useState(cohorts);
-
+function CohortList({ allCohorts, setAllCohorts }) {
   const handleEdit = (cohortId) => {
     // Implement editing logic
   };
