@@ -11,7 +11,7 @@ function CohortList({ allCohorts, setAllCohorts }) {
   };
 
   return (
-    <>
+    <div className="container">
       <h3 className="mb-4">COHORT LIST</h3>
       <table className="table table-striped table-bordered">
         <thead className="table-light">
@@ -40,7 +40,7 @@ function CohortList({ allCohorts, setAllCohorts }) {
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }
 

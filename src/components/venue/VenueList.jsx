@@ -15,7 +15,7 @@ export default function VenueList({allVenues, setAllVenues}) {
   };
 
   return (
-    <>
+    <div className="container">
       <h3 className="mb-4">VENUE LIST</h3>
       <table className="table table-striped table-bordered">
         <thead className="table-light">
@@ -42,6 +42,6 @@ export default function VenueList({allVenues, setAllVenues}) {
           ))}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }
