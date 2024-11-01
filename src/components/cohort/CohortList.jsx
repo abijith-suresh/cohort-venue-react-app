@@ -16,14 +16,14 @@ function CohortList({ allCohorts, setAllCohorts }) {
       <table className="table table-striped table-bordered">
         <thead className="table-light">
           <tr>
-            <th>ID</th>
-            <th>STACK NAME</th>
-            <th>SIZE</th>
-            <th>VENUE ID</th>
-            <th>START DATE</th>
-            <th>DURATION (weeks)</th>
-            <th>SPOC</th>
-            <th>INSTRUCTOR</th>
+            <th className="text-center">ID</th>
+            <th className="text-center">STACK NAME</th>
+            <th className="text-center">SIZE</th>
+            <th className="text-center">VENUE ID</th>
+            <th className="text-center">START DATE</th>
+            <th className="text-center">DURATION (weeks)</th>
+            <th className="text-center">SPOC</th>
+            <th className="text-center">INSTRUCTOR</th>
             <th colSpan={3} className="text-center">
               ACTIONS
             </th>
