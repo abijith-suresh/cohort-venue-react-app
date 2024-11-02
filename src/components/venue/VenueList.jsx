@@ -1,13 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import venues from "../../data/venuesData";
-import { useState } from "react";
 import VenueRow from "./VenueRow";
 
 export default function VenueList({ allVenues, setAllVenues }) {
-  const handleEdit = (venueId) => {
-    const venueToEdit = allVenues.find((venue) => venue.venueId === venueId);
-    // Implement the logic for editing the venue
-  };
 
   const handleDelete = (venueId) => {
     setAllVenues(allVenues.filter((venue) => venue.venueId !== venueId));
@@ -35,7 +29,6 @@ export default function VenueList({ allVenues, setAllVenues }) {
             <VenueRow
               key={venue.venueId}
               venue={venue}
-              onEdit={handleEdit}
               onDelete={handleDelete}
             />
           ))}

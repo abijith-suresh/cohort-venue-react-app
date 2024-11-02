@@ -9,6 +9,8 @@ import CohortAdd from "./components/cohort/CohortAdd";
 import cohorts from "./data/cohortData";
 import venues from "./data/venuesData";
 import VenueAdd from "./components/venue/VenueAdd";
+import CohortEdit from "./components/cohort/CohortEdit";
+import VenueEdit from "./components/venue/VenueEdit";
 
 function App() {
   const [allCohorts, setAllCohorts] = useState(cohorts);
@@ -44,6 +46,21 @@ function App() {
           ></Route>
           <Route path="/venue-view/:venueId" element={<VenueView />} />
           <Route path="/cohort-view/:cohortId" element={<CohortView />} />
+          <Route
+            path="/cohort-edit/:cohortId"
+            element={
+              <CohortEdit
+                allCohorts={allCohorts}
+                setAllCohorts={setAllCohorts}
+              />
+            }
+          />
+          <Route
+            path="/venue-edit/:venueId"
+            element={
+              <VenueEdit allVenues={allVenues} setAllVenues={setAllVenues} />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </>

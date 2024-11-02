@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function VenueRow({ venue, onEdit, onDelete }) {
+function VenueRow({ venue, onDelete }) {
   return (
     <tr>
       <td>{venue.venueId}</td>
@@ -19,16 +19,14 @@ function VenueRow({ venue, onEdit, onDelete }) {
           <i className="bi bi-eye"></i>
         </Link>
       </td>
-
       <td className="text-center">
-        <button
-          type="button"
+      <Link
+          to={`/venue-edit/${venue.venueId}`}
           className="btn btn-outline-warning me-2"
-          onClick={() => onEdit(venue.venueId)}
-          aria-label={`Edit ${venue.venueName}`}
+          aria-label={`Edit details for ${venue.venueName}`}
         >
           <i className="bi bi-pencil"></i>
-        </button>
+        </Link>
       </td>
       <td className="text-center">
         <button

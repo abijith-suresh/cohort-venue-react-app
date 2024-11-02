@@ -1,17 +1,18 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
-function VenueAdd({ setAllVenues }) {
-  const [venue, setVenue] = useState({
-    venueId: 101,
-    venueName: "",
-    venueSeater: "",
-    isVenueAC: true,
-    venueCity: "",
-    venueState: "",
-  });
-
+function VenueEdit({ allVenues, setAllVenues }) {
+  const { venueId } = useParams();
   const navigate = useNavigate();
+
+  const [venue, setVenue] = useState(null);
+
+  useEffect(() => {
+    const foundVenue = allVenues.find((v) => v.venueId === parseInt(venueId));
+    if (foundVenue) {
+      setVenue(foundVenue);
+    }
+  }, [venueId, allVenues]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,28 +24,21 @@ function VenueAdd({ setAllVenues }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newVenue = {
-      ...venue,
-      venueId: Math.floor(Math.random() * 1000), 
-    };
-
-    setAllVenues((prevVenues) => [...prevVenues, newVenue]);
-
-    setVenue({
-      venueId: 101,
-      venueName: "",
-      venueSeater: "",
-      isVenueAC: true,
-      venueCity: "",
-      venueState: "",
-    });
-
+    setAllVenues((prevVenues) =>
+      prevVenues.map((v) =>
+        v.venueId === parseInt(venueId) ? { ...venue, venueId: v.venueId } : v
+      )
+    );
     navigate("/venue-list");
   };
 
+  if (!venue) {
+    return <div className="container my-4">Venue not found.</div>;
+  }
+
   return (
     <div className="container my-4">
-      <h2 className="mb-4">Add New Venue</h2>
+      <h2 className="mb-4">Edit Venue</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="venueName" className="form-label">
@@ -118,7 +112,7 @@ function VenueAdd({ setAllVenues }) {
           />
         </div>
         <button type="submit" className="btn btn-primary">
-          Add Venue
+          Update Venue
         </button>
         <Link to="/venue-list" className="btn btn-secondary ms-2">
           Cancel
@@ -128,4 +122,4 @@ function VenueAdd({ setAllVenues }) {
   );
 }
 
-export default VenueAdd;
+export default VenueEdit;

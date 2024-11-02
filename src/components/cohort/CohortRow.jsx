@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 
-function CohortRow({ cohort, onEdit, onDelete }) {
+function CohortRow({ cohort, onDelete }) {
   return (
     <tr key={cohort.cohortId}>
       <td>{cohort.cohortId}</td>
@@ -28,14 +28,13 @@ function CohortRow({ cohort, onEdit, onDelete }) {
         </Link>
       </td>
       <td className="text-center">
-        <button
-          type="button"
+        <Link
+          to={`/cohort-edit/${cohort.cohortId}`}
           className="btn btn-outline-warning me-2"
-          onClick={() => onEdit(cohort.cohortId)}
           aria-label={`Edit cohort ${cohort.cohortId}`}
         >
           <i className="bi bi-pencil"></i>
-        </button>
+        </Link>
       </td>
       <td className="text-center">
         <button

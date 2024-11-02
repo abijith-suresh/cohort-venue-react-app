@@ -2,10 +2,6 @@ import CohortRow from "./CohortRow";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function CohortList({ allCohorts, setAllCohorts }) {
-  const handleEdit = (cohortId) => {
-    // Implement editing logic
-  };
-
   const handleDelete = (cohortId) => {
     setAllCohorts(allCohorts.filter((cohort) => cohort.cohortId !== cohortId));
   };
@@ -34,7 +30,6 @@ function CohortList({ allCohorts, setAllCohorts }) {
             <CohortRow
               key={cohort.cohortId}
               cohort={cohort}
-              onEdit={handleEdit}
               onDelete={handleDelete}
             />
           ))}
